@@ -26,4 +26,4 @@ MaskFormatter formatter = new MaskFormatter(textfield);
 formatter.setMask(MaskFormatter.CPF);
 ```
 ###Download da biblioteca:
-Baixe o JAR e coloque no seu projeto: [MaskJavaFX](https://www.dropbox.com/s/11ex4ldpw9n7k0i/MaskJavaFX.jar?dl=0)
+Baixe o JAR e coloque no seu projeto: [MaskJavaFX](https://www.dropbox.com/s/nuaw3qfn9rxdgtj/MaskFormatterFX.jar?dl=0)
