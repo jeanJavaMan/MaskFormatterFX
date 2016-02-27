@@ -17,7 +17,9 @@ public class MaskFormatter {
 
     /*Declaração dos componentes.*/
     private final TextField textField;
-
+    /*Variavel que vai contem a mascara selecionada para caso seja exibido
+    o formato da mascara.*/
+    private int maskSelecionada;
     /*Declaração de constantes que vão representar os tipos de mascaras*/
     /**
      * Máscara de telefone com 8 digitos. ex: (61) 9340-6012.
@@ -52,6 +54,7 @@ public class MaskFormatter {
      * @param maskType
      */
     public void setMask(int maskType) {
+        this.maskSelecionada = maskType;
         switch (maskType) {
             case TEL_8DIG:
                 maskTel8Dig();
@@ -230,18 +233,18 @@ public class MaskFormatter {
             }
 
             if (evento.getCharacter().trim().length() == 0) {
-                
-                switch(textField.getText().length()){
+
+                switch (textField.getText().length()) {
                     case 2:
-                        textField.setText(textField.getText().substring(0,1));
+                        textField.setText(textField.getText().substring(0, 1));
                         textField.positionCaret(textField.getText().length());
                         break;
                     case 6:
-                        textField.setText(textField.getText().substring(0,5));
+                        textField.setText(textField.getText().substring(0, 5));
                         textField.positionCaret(textField.getText().length());
                         break;
                     case 10:
-                        textField.setText(textField.getText().substring(0,9));
+                        textField.setText(textField.getText().substring(0, 9));
                         textField.positionCaret(textField.getText().length());
                         break;
                 }
@@ -266,5 +269,28 @@ public class MaskFormatter {
 
         });
 
+    }
+    
+    /**
+     * Exibi no componente o formato de máscara selecionado.
+     * Obs: Utilizar somente depois do método setMask()
+     */
+    public void showMask() {
+        switch (this.maskSelecionada) {
+            case TEL_8DIG:
+                textField.setPromptText("(__) ____-____");
+                break;
+            case TEL_9DIG:
+                textField.setPromptText("(__) _____-____");
+                break;
+            case CPF:
+                textField.setPromptText("___.___.___-__");
+                break;
+            case RG:
+                textField.setPromptText("__.___.___-_");
+                break;
+            default:
+                break;
+        }
     }
 }
