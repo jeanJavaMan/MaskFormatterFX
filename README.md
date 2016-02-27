@@ -26,5 +26,10 @@ formatter.setMask(MaskFormatter.TEL_8DIG);
 MaskFormatter formatter = new MaskFormatter(textfield);
 formatter.setMask(MaskFormatter.CPF);
 ```
+Método que exibi no componente a máscara selecionada:
+```
+formatter.showMask();
+```
 ###Download da biblioteca:
 Baixe o JAR e coloque no seu projeto: [MaskJavaFX](https://www.dropbox.com/s/nuaw3qfn9rxdgtj/MaskFormatterFX.jar?dl=0)
+Baixe o JavaDoc: [MaskFormatterFX JavaDoc](https://www.dropbox.com/s/d2dw860uabtarrx/MaskFormatterDoc.zip?dl=0)
