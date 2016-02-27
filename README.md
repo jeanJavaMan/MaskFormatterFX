@@ -15,6 +15,7 @@ formatter.setMask(int maskType);
 - MaskFormatter.TEL_8DIG: Máscara de telefone com 8 digitos. Ex: (61) 7070-7070.
 - MaskFormatter.TEL_9DIG: Máscara de telefone com 9 digitos. Ex: (61) 97070-7070.
 - MaskFormatter.CPF: Máscara de CPF. Ex: 000.000.000-00.
+- MaskFormatter.RG: Máscara de RG. Ex: 00.000.000-0
 
 ##Como usar:
 --------
