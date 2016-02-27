@@ -31,6 +31,10 @@ public class MaskFormatter {
      * Máscara de CPF. Ex: 000.000.000-00
      */
     public static final int CPF = 2;
+    /**
+     * Máscara de RG. EX: 00.000.000-0
+     */
+    public static final int RG = 3;
 
     /**
      * Passe o TextField que terá a mascara.
@@ -57,6 +61,9 @@ public class MaskFormatter {
                 break;
             case CPF:
                 maskCpf();
+                break;
+            case RG:
+                maskRg();
                 break;
             default:
                 break;
@@ -214,5 +221,35 @@ public class MaskFormatter {
             }
 
         });
+    }
+
+    private void maskRg() {
+        textField.setOnKeyTyped((KeyEvent evento) -> {
+            if (!"0123456789".contains(evento.getCharacter())) {
+                evento.consume();
+            }
+
+            if (evento.getCharacter().trim().length() == 0) {
+
+            } else if (textField.getText().length() == 12) {
+                evento.consume();
+            }
+            switch (textField.getText().length()) {
+                case 2:
+                    textField.setText(textField.getText() + ".");
+                    textField.positionCaret(textField.getText().length());
+                    break;
+                case 6:
+                    textField.setText(textField.getText() + ".");
+                    textField.positionCaret(textField.getText().length());
+                    break;
+                case 10:
+                    textField.setText(textField.getText() + "-");
+                    textField.positionCaret(textField.getText().length());
+                    break;
+            }
+
+        });
+
     }
 }
