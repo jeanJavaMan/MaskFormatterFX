@@ -230,6 +230,21 @@ public class MaskFormatter {
             }
 
             if (evento.getCharacter().trim().length() == 0) {
+                
+                switch(textField.getText().length()){
+                    case 2:
+                        textField.setText(textField.getText().substring(0,1));
+                        textField.positionCaret(textField.getText().length());
+                        break;
+                    case 6:
+                        textField.setText(textField.getText().substring(0,5));
+                        textField.positionCaret(textField.getText().length());
+                        break;
+                    case 10:
+                        textField.setText(textField.getText().substring(0,9));
+                        textField.positionCaret(textField.getText().length());
+                        break;
+                }
 
             } else if (textField.getText().length() == 12) {
                 evento.consume();
