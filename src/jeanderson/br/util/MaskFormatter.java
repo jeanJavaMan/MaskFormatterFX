@@ -99,8 +99,10 @@ public class MaskFormatter {
         } else {
             switch (maskType) {
                 case DATA_BARRA:
+                    maskDataBarra();
                     break;
                 case DATA_TRACO:
+                    maskDataTraco();
                     break;
                 default:
                     break;
@@ -314,16 +316,25 @@ public class MaskFormatter {
             }
 
             if (evento.getCharacter().trim().length() == 0) {
-
+                switch (datePicker.getEditor().getText().length()) {
+                    case 2:
+                        datePicker.getEditor().setText(datePicker.getEditor().getText().substring(0, 1));
+                        datePicker.getEditor().positionCaret(datePicker.getEditor().getText().length());
+                        break;
+                    case 5:
+                        datePicker.getEditor().setText(datePicker.getEditor().getText().substring(0, 4));
+                        datePicker.getEditor().positionCaret(datePicker.getEditor().getText().length());
+                        break;
+                }
             } else if (datePicker.getEditor().getText().length() == 10) {
                 evento.consume();
             }
             switch (datePicker.getEditor().getText().length()) {
-                case 3:
+                case 2:
                     datePicker.getEditor().setText(datePicker.getEditor().getText() + "/");
                     datePicker.getEditor().positionCaret(datePicker.getEditor().getText().length());
                     break;
-                case 6:
+                case 5:
                     datePicker.getEditor().setText(datePicker.getEditor().getText() + "/");
                     datePicker.getEditor().positionCaret(datePicker.getEditor().getText().length());
                     break;
@@ -340,17 +351,26 @@ public class MaskFormatter {
             }
 
             if (evento.getCharacter().trim().length() == 0) {
-
+                switch (datePicker.getEditor().getText().length()) {
+                    case 2:
+                        datePicker.getEditor().setText(datePicker.getEditor().getText().substring(0, 1));
+                        datePicker.getEditor().positionCaret(datePicker.getEditor().getText().length());
+                        break;
+                    case 5:
+                        datePicker.getEditor().setText(datePicker.getEditor().getText().substring(0, 4));
+                        datePicker.getEditor().positionCaret(datePicker.getEditor().getText().length());
+                        break;
+                }
             } else if (datePicker.getEditor().getText().length() == 10) {
                 evento.consume();
             }
             switch (datePicker.getEditor().getText().length()) {
-                case 3:
-                    datePicker.getEditor().setText(datePicker.getEditor().getText() + "-");
+                case 2:
+                    datePicker.getEditor().setText(datePicker.getEditor().getText()+"-");
                     datePicker.getEditor().positionCaret(datePicker.getEditor().getText().length());
                     break;
-                case 6:
-                    datePicker.getEditor().setText(datePicker.getEditor().getText() + "-");
+                case 5:
+                    datePicker.getEditor().setText(datePicker.getEditor().getText()+"-");
                     datePicker.getEditor().positionCaret(datePicker.getEditor().getText().length());
                     break;
             }
@@ -377,10 +397,10 @@ public class MaskFormatter {
                 textField.setPromptText("__.___.___-_");
                 break;
             case DATA_BARRA:
-                datePicker.getEditor().setPromptText("__/__/____");
+                datePicker.setPromptText("__/__/____");
                 break;
             case DATA_TRACO:
-                datePicker.getEditor().setPromptText("__-__-____");
+                datePicker.setPromptText("__-__-____");
                 break;
             default:
                 break;
